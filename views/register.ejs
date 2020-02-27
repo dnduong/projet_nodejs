@@ -1,0 +1,59 @@
+<DOCTYPE hmtl>
+	<html lang = "fr">
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="style1.css">
+		<title> Inscription </title>
+		<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+		<script>
+			$(document).ready( function(){
+				function validate_form() {
+					if ($('#p_sign').val() != $('#cf_sign').val()) {
+						alert("Veuillez entrer les mêmes mots de passe")
+					};
+				}
+				$('#s_register').mouseover(validate_form);		
+			});
+		</script>
+	</head>
+	<body>
+		<div id="header">
+			<%- include('header.ejs') %>
+		</div>
+		<div id="menu">
+			<%- include('menu.ejs') %>
+		</div>
+		<div id="main">
+			<h1>Inscription</h1>
+			<p><%= message %></p>		
+			<form method = "post" action ="register">
+				<label>Nom</label>
+				<input type="text" name="nom" required>
+				<br>
+				<label>Prénom</label>
+				<input type="text" name="prenom" required>
+				<br>
+				<label>Sexe</label>
+				<select name="sexe" single>
+					<option value="f">Femme</option>
+					<option value="h">Homme</option>
+				</select>
+				<br>
+				<label>Login</label>
+				<input type="text" name="log" required>
+				<br>
+				<label>Mot de passe</label>
+				<input id="p_sign"type="password" name="pass" minlength="6" required> 
+				<br>
+				<label>Confirmation du mot de pass</label>
+				<input id="cf_sign" type="password" name="confirm" required>
+				<br>
+				<input type="reset" name="reset" value="Réinitialiser">
+				<input id="s_register" type="submit" name="submit" value="Envoyer">
+			</form>	
+		</div>
+		<div id="footer">
+			
+		</div>
+	</body>
+	</html>

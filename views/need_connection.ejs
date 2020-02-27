@@ -1,0 +1,26 @@
+<DOCTYPE hmtl>
+	<html lang = "fr">
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href=<%= path+"/style1.css" %>>
+		<title> Action denied </title>
+	</head>
+	<body>
+		<div id="header">
+			<%- include('header.ejs') %>
+		</div>
+		<div id="menu">
+			<a href=<%= path+"/home" %>>Home</a><br>
+			<a href=<%= path+"/register" %>>Inscription</a><br>	
+			<a href=<%= path+"/login" %>>Login</a><br>
+		</div>
+		<div id="main">
+			<p>Vous devez vous connecter à un compte afin d'effectuer l'action demander.</p>
+		</div>
+		<div id="footer">
+			
+		</div>
+	
+	
+	</body>
+	</html>

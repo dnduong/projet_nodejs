@@ -1,0 +1,33 @@
+<DOCTYPE hmtl>
+	<html lang = "fr">
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="style1.css">
+		<title> Ajouter une image </title>
+	</head>
+	<body>
+		<div id="header">
+			<%- include('header.ejs') %>
+		</div>
+		<div id="menu">
+			<%- include('menu.ejs') %>
+		</div>
+		<div id="main">
+			<h1><%= message %></h1>
+			<p>N'utilisez pas des images contenant un charactère espace " " dans leurs noms.</p>
+			<% if(action != 'avatar') { %>
+			<form method="post" action="fileupload" enctype="multipart/form-data">
+			<% } %>
+			<% if(action == 'avatar') { %>
+			<form method="post" action="avatarupload" enctype="multipart/form-data">
+			<% } %>
+				<label>Image :</label>	
+				<input type="file" name="filetoupload" required><br>
+				<input type="submit" name="upload" value="Ajouter">
+			</form>
+		</div>
+		<div id="footer">
+			
+		</div>
+	</body>
+	</html>

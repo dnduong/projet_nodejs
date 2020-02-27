@@ -1,0 +1,52 @@
+<DOCTYPE hmtl>
+	<html lang = "fr">
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href=<%= path+"/style1.css" %>>
+		<title> Images </title>
+		<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+	</head>
+	<body>
+		<div id="header">
+			<%- include('header.ejs') %>
+		</div>
+		<div id="menu">
+			<a href=<%= path+"/home" %>>Home</a><br>
+			<a href=<%= path+"/image" %>>Vos images</a><br>
+			<a href=<%= path+"/all_users" %>>Tous les utilisateurs</a><br>
+			<a href=<%= path+"/search" %>>Recherche</a><br>	
+		</div>
+		<div id="main">
+			<% if (print == true) { %>
+				<form action=<%=path+"/like/"+username%> method="post">
+					<input type="submit" value="Aimer">
+				</form>
+			<% }%>
+			<div id="defile">
+				<% for (var i = 0; i< user.length; i++){ %>
+					<div><img src=<%= '/images/'+username+'/'+user[i].images %> width="200" height="200"></div>
+				<% } %>
+			</div>
+			<% if (user.length == 0) { %>
+				<p>Aucune image a été ajoutée par cet utilisateur</p>
+			<% }%>
+			<button type="button" id="suivant">Suivant</button>
+			<script>
+					var defile = $("#defile").find("div");
+					for(var i = 1; i < <%=user.length%>; i++){
+						defile.eq(i).hide();
+					}
+					var i = 0;
+					var defiler = function () {
+						defile.eq(i).hide();
+						i = (i+1)%<%=user.length%>;
+						defile.eq(i).show();
+					}
+					$("#suivant").click(defiler);
+			</script>
+		</div>
+		<div id="footer">
+			
+		</div>
+	</body>
+	</html>

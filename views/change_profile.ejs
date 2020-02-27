@@ -1,0 +1,51 @@
+<DOCTYPE hmtl>
+	<html lang = "fr">
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="style1.css">
+		<title> Modification du profil </title>
+		<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+		<script>
+			$(document).ready( function(){
+				function validate_form() {
+					if ($('#p').val() != $('#cf').val()) {
+						alert("Veuillez entrer les mêmes mots de passe")
+					};
+				}
+				$('#subpass').mouseover(validate_form);		
+			});
+		</script>
+	</head>
+	<body>
+		<div id="header">
+			<%- include('header.ejs') %>
+		</div>
+		<div id="menu">
+			<%- include('menu.ejs') %>
+		</div>
+		<div id="main">
+			<% if (action == "pass"){ %>
+				<h1>Modification du mot de pass</h1>
+				<form method = "post" action = "change_pass">
+					<label>Nouveau mot de pass :</label>
+					<input id="p" type="password" name="pass" minlength="6" required><br>
+					<label>Confirmation : </label>
+					<input id="cf" type="password" name="cf" required><br>
+					<input id="subpass" type="submit" value="Modifier">
+				</form>
+			<% } %>
+			<% if (action == "text"){ %>
+				<h1>Modification du texte descriptif</h1>
+				<form method = "post" action= "change_text">
+					<label> Nouveau texte descriptif : (maximum 255 caractères)</label>
+					<textarea name="new_text" cols="50" rows ="5" maxlength="255" >Ecrire votre texte ici</textarea><br>
+					<input type="submit" value="Modifier">
+				</form>
+			<% } %>
+		</div>
+		<div id="footer">
+			
+		</div>
+	</body>
+	</html>
+	

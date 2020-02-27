@@ -1,0 +1,33 @@
+<DOCTYPE hmtl>
+	<html lang = "fr">
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="style1.css">
+		<title> Profil </title>
+	</head>
+	<body>
+		<div id="header">
+			<%- include('header.ejs') %>
+		</div>
+		<div id="menu">
+			<%- include('menu.ejs') %>
+		</div>
+		<div id="main">
+			<p><%= user %></p>	
+			<% if(image == 'defaut.jpg') {%>
+				<img src=<%= '/images/'+image %> width="200" height="200">
+			<%}%>
+			<% if(image != 'defaut.jpg') {%>
+				<img src=<%= '/images/'+ login + '/' + image %> width="200" height="200">
+			<%}%>
+			<p>Description : <%= text %></p>
+			<a href="change_image">Changer l'image de profil</a><br>
+			<a href="change_pass">Modification du mot de pass</a><br>
+			<a href="change_text">Ajout du text descriptif</a><br>
+		</div>
+		<div id="footer">
+			
+		</div>
+	
+	</body>
+	</html>

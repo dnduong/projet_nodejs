@@ -1,0 +1,31 @@
+<DOCTYPE hmtl>
+	<html lang = "fr">
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="style1.css">
+		<title> Result </title>
+		<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+		<script>
+			$(document).ready( function(){
+				function redirection() {
+					document.location.href="/home";
+				}
+				setTimeout(redirection, 3000);
+			});
+		</script>
+	</head>
+	<body>
+		<div id="header">
+			<%- include('header.ejs') %>
+		</div>
+		<div id="menu">
+			<%- include('menu.ejs') %>
+		</div>
+		<div id="main">
+			<p>Aucun résultat n'a été trouvé par votre demande, vous retournerez vers la page Home dans 3 secondes </p>	
+		</div>
+		<div id="footer">
+			
+		</div>
+	</body>
+	</html>

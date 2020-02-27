@@ -1,0 +1,53 @@
+<DOCTYPE hmtl>
+	<html lang = "fr">
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="style1.css">
+		<title> <%= title%> </title>
+		<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+	</head>
+	<body>
+	<div id="header">
+		<%- include('header.ejs') %>
+	</div>
+	<div id="menu">
+		<%- include('menu.ejs') %>
+	</div>
+	<div id="main">
+		<%= message%>
+		<div id="defile">
+		<% for (var i = 0; i< user.length; i++){ %>
+			<div>
+				<label>Pseudo : </label><a href = <%='all_users/' +user[i].login%>><%= user[i].login%></a><br>
+				<label>Description :</label><%= user[i].text%><br>
+				<% if(user[i].avatar == 'defaut.jpg') {%>
+				<img src=<%= '/images/'+ user[i].avatar %> width="200" height="200">
+				<% } %>
+				<% if(user[i].avatar != 'defaut.jpg') {%>
+				<img src=<%= '/images/'+ user[i].login + '/' + user[i].avatar %> width="200" height="200">
+				<% } %>
+				<br>
+			</div>
+		<% } %>
+		</div>
+		<button type="button" id="suivant">Suivant</button>
+		<script>
+				var defile = $("#defile").find("div");
+				for(var i = 1; i < <%=user.length%>; i++){
+					defile.eq(i).hide();
+				}
+				var i = 0;
+				var defiler = function () {
+					defile.eq(i).hide();
+					i = (i+1)%<%=user.length%>;
+					defile.eq(i).show();
+				}
+				$("#suivant").click(defiler);
+		</script>
+	</div>
+	<div id="footer">
+		
+	</div>
+	</body>
+	</html>
+	

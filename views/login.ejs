@@ -1,0 +1,31 @@
+<DOCTYPE hmtl>
+	<html lang = "fr">
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="style1.css">
+		<title> Login </title>
+	</head>
+	<body>
+		<div id="header">
+			<%- include('header.ejs') %>
+		</div>
+		<div id="menu">
+			<%- include('menu.ejs') %>
+		</div>
+		<div id="main">
+			<h1>Authentification</h1>	
+			<p><%= message %></p>	
+			<form method="post" action="login">
+				<label>Login</label><br>
+				<input type="text" name="log" required><br>
+				<label>Password</label><br>
+				<input type="password" name="pw" required><br>
+				<input type="reset" name="reset" value="Réinitialiser">
+				<input id="s_connect" type="submit" name="submit" value="Connecter">
+			</form>	
+		</div>
+		<div id="footer">
+			
+		</div>
+	</body>
+	</html>

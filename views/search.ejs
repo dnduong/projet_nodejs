@@ -1,0 +1,34 @@
+<DOCTYPE hmtl>
+	<html lang = "fr">
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="style1.css">
+		<title> Recherche </title>
+	</head>
+	<body>
+		<div id="header">
+			<%- include('header.ejs') %>
+	</div>
+	<div id="menu">
+		<%- include('menu.ejs') %>
+	</div>
+	<div id="main">
+		<h1>Recherche</h1>
+		<p>(Vous pouvez laisser une des critères vide, la recherche se fera quand même)</p>
+		<form method="post" action="search">
+			<label>Pseudo : </label>
+			<input type="text" name="nom"><br>
+			<label>Sexe : </label>
+			<select name="sexe" single>
+				<option value="f">Femme</option>
+				<option value="h">Homme</option>
+			</select><br>
+			<input type="submit" value="Rechercher">
+		</form>
+	</div>
+	<div id="footer">
+		
+	</div>
+	</body>
+	</html>
+	
